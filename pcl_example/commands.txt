@@ -16,5 +16,6 @@ pcl_viewer stat_output.pcd
 pcl_viewer radius_output.pcd
 
 # view original vs filtered side by side
-pcl_viewer scan.pcd stat_output.pcd
-pcl_viewer scan.pcd radius_output.pcd
+cd pcl_example
+pcl_viewer -multiview 1 scan.pcd stat_output.pcd
+pcl_viewer -multiview 1 scan.pcd radius_output.pcd
