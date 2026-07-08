@@ -1,0 +1,20 @@
+cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+# rebuild after every change to main.cpp:
+cmake --build build
+
+./build/voxel_demo "data/14 Ladybrook Road 10.ply"
+
+# convert PLY outputs to PCD
+pcl_ply2pcd "data/14 Ladybrook Road 10.ply" scan.pcd
+pcl_ply2pcd stat_output.ply stat_output.pcd
+pcl_ply2pcd radius_output.ply radius_output.pcd
+
+# view a single cloud
+pcl_viewer scan.pcd
+pcl_viewer stat_output.pcd
+pcl_viewer radius_output.pcd
+
+# view original vs filtered side by side
+pcl_viewer scan.pcd stat_output.pcd
+pcl_viewer scan.pcd radius_output.pcd

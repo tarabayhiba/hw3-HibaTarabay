@@ -6,3 +6,8 @@ log/
 # Python
 __pycache__/
 *.pyc
+
+# generated point cloud data / build artifacts
+*.ply
+*.pcd
+compile_commands.json
